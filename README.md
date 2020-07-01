@@ -6,7 +6,7 @@ URL: https://www.youtube.com/watch?v=wcsVjmHrUQg&t=64s
 
 # Node.js + React
 
-<img width='150' src='https://bit.ly/2ZdHzg3' />
+<img width='150' src='./src/img/logo-JS.png' />
 
 
 ### JS 기초강의 (ES5+): 같이 노트 작성하며 배워요 📒

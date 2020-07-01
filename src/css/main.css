@@ -1,0 +1,16 @@
+#ID {
+  font-weight: bolder;
+  font-size: 3.0em;
+  color: #d215f6;
+  text-align: center;
+}
+
+
+b  {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  line-height: 40px;
+  border-radius: 25px;
+  margin: 0.5px;
+}
