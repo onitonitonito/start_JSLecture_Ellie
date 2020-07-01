@@ -22,7 +22,7 @@ URL: https://www.youtube.com/watch?v=wcsVjmHrUQg&t=64s
 ##### 1. JS 배우기 전, 꼭 봐야 할 영상
 >  자바스크립트의 역사와 현재 그리고 미래 (JavaScript, ECMAScript, JQuery, Babel, Node.js) : **▶ [15:41]**
 
-##### 2. 콘솔출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향
+##### 2. 콘솔출력, script async 와 defer 차이점 및 앞으로 자바스크립트 공부 방향
 > 프론트엔드 개발자 입문편 (JavaScript ES5+) : **▶ [17:44]**
 
 ##### 3. 데이터타입, data types, let vs var, hoisting
@@ -31,10 +31,10 @@ URL: https://www.youtube.com/watch?v=wcsVjmHrUQg&t=64s
 ##### 4. 코딩의 기본 operator, if, for loop 코드리뷰 팁
 > 프론트엔드 개발자 입문편 (JavaScript ES6) : **▶ [20:15]**
 
-##### 5. Arrow Function은 무엇인가? 함수의 선언과 표현
+##### 5. Arrow Function은 무엇인가? 함수선언과 표현
 > 프론트엔드 개발자 입문편(JavaScript ES6) : **▶ [25:02]**
 
-##### 6. 클래스와 오브젝트의 차이점(class vs object), 객체지향 언어 클래스 정리
+##### 6. 클래스와 오브젝트 차이점(class vs object), 객체지향 언어 클래스 정리
 > 프론트엔드 개발자 입문편 (JavaScript ES6) : **▶ [25:37]**
 
 ##### 7. 자바스크립트를 이용한 미니 게임 만들기 프로젝트 안내편
@@ -55,7 +55,7 @@ URL: https://www.youtube.com/watch?v=wcsVjmHrUQg&t=64s
 ##### 12. JSON 개념 정리 와 활용방법 및 유용한 사이트 공유 JavaScript JSON
 > 프론트엔드 개발자 입문편 (JavaScript ES6) : **▶ [22:37]**
 
-##### 13. 비동기 처리의 시작 콜백 이해하기, 콜백 지옥 체험 😱 JavaScript Callback
+##### 13. 비동기 처리시작 콜백 이해하기, 콜백지옥 체험 😱 JavaScript Callback
 > 프론트엔드 개발자 입문편 (JavaScript ES6) : **▶ [21:16]**
 
 ##### 14. 프로미스 개념부터 활용까지 JavaScript Promise
