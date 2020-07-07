@@ -15,7 +15,7 @@ URL: https://www.youtube.com/watch?v=wcsVjmHrUQg&t=64s
 
 > 1. https://www.youtube.com/playlist?list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2
 > 1. JavaScript YouTube Lecture by Ellie
-> 1. ... and more
+> 1. ... and more 
 
 ▶
 
