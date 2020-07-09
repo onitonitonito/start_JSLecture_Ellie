@@ -68,7 +68,6 @@ function ex06_1() {
   kay.introduce();
 }
 
-
 // 2. getter & setter
 function ex06_2() {
   class User {
@@ -110,18 +109,120 @@ function ex06_2() {
 function ex06_3() {
   // Too soon! ... update : unsupport inundated browser even Safari-
   // If you want to use, USE IT via BABEL.
+  // Atom-JavaScript-RUN not support, yet! ... Syntax Error occured
+  // Check result on Chrome browser, via main.html
+
   // https://developer.mozilla.org/en-su/docs/web/JavaScript/Refere
 
   class Experiment {
-    publicField = 2;
-    #privateField = 0;
+    publicField = 'public field! == VISIBLE OUTSIDE';
+    #privateField = "private field == CAN'T BE SEEN OUTSIDE";
   }
 
   const experiment = new Experiment();
   console.log(experiment.publicField);
-  console.log(experiment.privateField);
-  // Atom-JavaScript-RUN not support, yet! ... Syntax Error occured
-  // Check result on Chrome browser, via main.html
+  console.log(experiment.privateField); // undefined ... CAN'T SEE OUTSIDE!
 }
 
-// 4. static
+// 4. static properties & methods
+function ex06_4() {
+  // Too soon! ... Not Support yet
+  // Atom-JavaScript-Run Don't Support yet! .... check result on Chrome.
+  // Check result on Chrome browser, via main.html
+  class Article {
+    static publisher = 'Dream Coading!';
+
+    constructor(articleNumber) {
+      this.articleNumber = articleNumber;
+    }
+
+    static printPublisher() {
+      console.log(Article.publisher);
+    }
+  }
+
+  const article1 = new Article(1);
+  const article2 = new Article(2);
+
+  // console.log(article1.publisher); // undefined ... static! == Class property
+  console.log(Article.publisher); // undefined ... static! == Class property
+  Article.printPublisher();
+}
+
+// 5.inheritance
+function ex06_5() {
+  // a way for one class to extend another class.
+  class Shape {
+    constructor(width, height, color, name) {
+      this.width = width;
+      this.height = height;
+      this.color = color;
+      this.name = name;
+    }
+
+    drawShape() {
+      console.log(`drawing ${this.color} color!`);
+    }
+
+    getArea() {
+      return this.width * this.height;
+    }
+
+    printArea() {
+      console.log(`Area of ${this.name}(${this.width}x${this.height})`,
+                  `= ${this.getArea()} m2`);
+    }
+  }
+
+
+  // Inherite from Shape
+  class Rectangle extends Shape {
+    drawShape() {                  // override
+      console.log(`shape ■! of '${this.color}' color!`);
+    }
+
+  }
+
+  class Triangle extends Shape {
+    drawShape() {
+      super.drawShape();         // Inherite & more
+      console.log(`shape ▲! of '${this.color}' color!`);
+    }
+
+    getArea() {                  // override
+      return (this.width * this.height)/2;
+    }
+  }
+
+  const rectangle = new Rectangle(20, 20, 'blue', 'Rectangle');
+  rectangle.drawShape();
+  rectangle.printArea();
+
+  // let area = rectangle.getArea();
+  // let size = [rectangle.width, rectangle.height];
+  // console.log(`Area of ${Rectangle.name}(${size[0]}x${size[1]})=${area} m2`);
+
+  const triangle = new Triangle(20, 30, 'red', 'Triangle');
+  triangle.drawShape();
+  triangle.printArea();
+
+  // 6. class checking : instanceOf
+
+  console.log(rectangle instanceof Rectangle);     // true
+  console.log(triangle instanceof Rectangle);      // false
+  
+  console.log(triangle instanceof Triangle);  // true
+  console.log(triangle instanceof Shape);     // true
+  console.log(triangle instanceof Object);    // true
+
+}
+
+
+
+
+
+ex06_5();
+// ex06_4();
+// ex06_3();
+// ex06_2();
+// ex06_1();
