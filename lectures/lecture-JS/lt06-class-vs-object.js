@@ -112,7 +112,7 @@ function ex06_3() {
   // Atom-JavaScript-RUN not support, yet! ... Syntax Error occured
   // Check result on Chrome browser, via main.html
 
-  // https://developer.mozilla.org/en-su/docs/web/JavaScript/Refere
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
   class Experiment {
     publicField = 'public field! == VISIBLE OUTSIDE';
@@ -192,6 +192,10 @@ function ex06_5() {
     getArea() {                  // override
       return (this.width * this.height)/2;
     }
+
+    toString() {
+      return `Triangle:'${this.color}', size=[${this.width}x${this.height}]`
+    }
   }
 
   const rectangle = new Rectangle(20, 20, 'blue', 'Rectangle');
@@ -210,18 +214,48 @@ function ex06_5() {
 
   console.log(rectangle instanceof Rectangle);     // true
   console.log(triangle instanceof Rectangle);      // false
-  
+
   console.log(triangle instanceof Triangle);  // true
   console.log(triangle instanceof Shape);     // true
   console.log(triangle instanceof Object);    // true
 
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+  console.log(triangle.toString());           // [object Object]
 }
 
 
+// Fun quiz time at the end of lecture05.arrow func : Answer to the Quiz
+// function calculator(command, a, b) {}
+// command: add, subtract, divide, remainder
+
+function calculator(command, a, b) {
+  switch (command) {
+    case 'add':
+      return a + b;
+
+    case 'subtract':
+      return a - b;
+
+    case 'multiply':
+      return a * b;
+
+    case 'devide':
+      return a / b;
+
+    case 'remainder':
+      return a % b;
+
+    default:
+      throw Error(`[${command}] <== Unknown command! ...`);
+  }
+}
+
+console.log(calculator('multiply', 3, 4));
+console.log(calculator('much more', 3, 4));
 
 
 
-ex06_5();
+// ex06_5();
 // ex06_4();
 // ex06_3();
 // ex06_2();
