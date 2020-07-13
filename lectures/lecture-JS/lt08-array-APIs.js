@@ -4,10 +4,14 @@
 // Lecture.08 - lt08-array-APIs.js
 // *************************
 
+// TODO:  due to function hoisting ...
+
 ex08_ex();
 // ex08_5();
 // ex08_4();
 // ex08_123();
+
+
 
 // 0.stretching(warm up) before workout -- in the former lecture
 function ex08_0() {
