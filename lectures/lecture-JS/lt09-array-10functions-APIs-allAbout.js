@@ -57,6 +57,7 @@ class Student {
   }
 }
 
+// cleart students array by using Class
 const students = [
   new Student('A', 29, true, 45),
   new Student('B', 27, false, 80),
@@ -68,38 +69,71 @@ const students = [
 
 // 05. find a student with the score 90
 {
-  student.find(function() {})
+  const result = students.find((student) => {
+    return student.score == 90;
+  });
+  console.log('find(arg) = arg.prop state', result);
 }
 
 
 // 06. make an array of enrolled students
 {
-
+  const result = students.filter((student) => student.enrolled);
+  console.log('filter(arg) = arg.enrolled ', result);
 }
 
 // 07. make an array containing only the students' scores
 // result should be: [45, 80,  90, 95, 60]
 {
-
+  const result = students.map((student) => student.score);
+  console.log('map(arg) = arg.score ', result);
 }
 
 // 08. check if there is a student with the score lower than 50
 {
+  const result = students.some((student) => student.score < 50);
+  console.log('some(arg) = arg.score state ', result);    // true
 
+  const result2 = students.every((student) => student.score >= 50);
+  console.log('every(arg) = arg.score state ', result2);    // false
 }
 
 
 // 09. compute students' average score
 {
+  // // 01. step by step
+  // const result = students.reduce((prev, curr) => {
+  //   console.log('------------------');
+  //   console.log('prev: ', prev);
+  //   console.log('curr: ', curr);
+  //   return (prev + curr.score);
+  // }, 0);
 
+  // 02. go straight to the result === total sum
+  const result = students.reduce((prev, curr) => prev + curr.score, 0);
+
+  console.log('reduce(pre,cur) return pre+cur.score ', result);    // 370
 }
+
 
 // 10. make a string containing all the scores
 // result should be: '45, 90, 90, 95, 60'
 {
-
+  const result = students
+  .map((student) => student.score)   // mapping score only
+  .filter((score) => score >= 50)    // filter score >= 50
+  .join();                           // join as string '-,-,-,'
+  console.log('  --> ', result);
 }
 
 
 // Bonus! do 10 sorted in ascending order
 // result should be: '45, 60, 80, 90, 95'
+
+{
+  const result = students.map(student => student.score)
+  // .sort((a, b) => a - b)     // ascending
+  .sort((a, b) => b - a)     // descending
+  .join();
+  console.log('  -->>', result);
+}
