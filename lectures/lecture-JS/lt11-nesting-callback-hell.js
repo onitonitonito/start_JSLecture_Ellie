@@ -5,11 +5,13 @@
 // *************************
 
 // 0.WARM-UP PRACTICE in Foremer lecture
-function ex11_0() {
+function ex11_0warmUp() {
 
 }
 
 // TODO:
+ex11_4callback_to_promise();
+ex11_3callback_hell();
 ex11_2();
 ex11_1();
 
@@ -48,62 +50,113 @@ function ex11_2() {
 }
 
 // 03.nesting a callback-hell for example...
-class UserStorage {
-  loginUser(id, password, onSuccess, onError) {
-    setTimeout(() => {
-      if (
-        (id === 'Ellie' && password === 'dream') ||
-        (id === 'Coder' && password === 'academy')
-      ) {
-        onSuccess(id);
-      } else {
-        onError(new Error('** USER not found! **'));
-      }
-    }, 1000);
+function ex11_3callback_hell() {
+  class UserStorage {
+    loginUser(id, password, onSuccess, onError) {
+      setTimeout(() => {
+        if (
+          (id === 'Ellie' && password === 'dream') ||
+          (id === 'Coder' && password === 'academy')
+        ) {
+          onSuccess(id);
+        } else {
+          onError(new Error('** USER not found! **'));
+        }
+      }, 1000);
+    }
+
+    // commit this assumming as BackEnd of bad structure.
+    getRoles(id, onSuccess, onError) {
+      setTimeout(() => {
+        if (id === 'Ellie') {
+          let user = {name: 'Ellie',role: 'admin'};
+          onSuccess(user);
+        } else {
+          onError(new Error('no access'));
+        }
+      }, 1000);
+    }
   }
 
-  // commit this assumming as BackEnd of bad structure.
-  getRoles(id, onSuccess, onError) {
-    setTimeout(() => {
-      if (id === 'Ellie') {
-        let user = {name: 'Ellie',role: 'admin'};
-        onSuccess(user);
-      } else {
-        onError(new Error('no access'));
+  // prompt() ... is only available on BROWSER!
+  const id = prompt('> Enter your ID:');
+  const password = prompt('> Enter Your Password:');
+
+  const userStorage = new UserStorage();
+
+  userStorage.loginUser(
+      id,
+      password,
+
+      // onSuccess
+      user => {
+        userStorage.getRoles(
+          user,
+
+          // onSucess
+          userWithRole => {
+            alert(`Hello '${user.name}', you have a '${user.role}' role`);
+          },
+
+          // onError
+          error => {
+            console.log(error);
+          }
+        );
+      },
+
+      // onError
+      error => {
+        console.log(error);
       }
-    }, 1000);
-  }
+    );
 }
 
-// prompt() ... is only available on BROWSER!
-const id = prompt('> Enter your ID:');
-const password = prompt('> Enter Your Password:');
+// 04.to refactor for callback-hell by promise
+function ex11_4callback_to_promise() {
+  class UserStorage {
+    loginUser(id, password) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (
+            (id === 'Ellie' && password === 'dream') ||
+            (id === 'Coder' && password === 'academy')
+          ) {
+            // onSuccess(id);
+            resolve(id);
 
-const userStorage = new UserStorage();
-
-userStorage.loginUser(
-    id,
-    password,
-
-    // onSuccess
-    user => {
-      userStorage.getRoles(
-        user,
-
-        // onSucess
-        userWithRole => {
-          alert(`Hello '${user.name}', you have a '${user.role}' role`);
-        },
-
-        // onError
-        error => {
-          console.log(error);
-        }
-      );
-    },
-
-    // onError
-    error => {
-      console.log(error);
+          } else {
+            reject(new Error('** USER not found! **'));
+          }
+        }, 2000);
+      });
     }
-  );
+
+    // commit this assumming as BackEnd of bad structure.
+    getRoles(id) {
+      return new Promise((resolve, reject) = {
+        setTimeout(() => {
+          if (id === 'Ellie') {
+            let user = {name: 'Ellie',role: 'admin'};
+            resolve(user);
+          } else {
+            reject(new Error('no access'));
+          }
+        }, 1000);
+      })
+    }
+  }
+
+  // userStorage.loginUser(id, password) //
+  //   .then(user => userStorage.getRoles(user))
+  //   .then(user => alert(`Hello '${user.name}', you have a '${user.role}' role`))
+  //   .catch(error => console.log(error);)
+
+
+  // Simplify a little bit!
+  userStorage.loginUser(id, password) //
+    .then(userStorage.getRoles())
+    .then(alert(`Hello '${user.name}', you have a '${user.role}' role`))
+    .catch(console.log(error));
+
+}
