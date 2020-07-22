@@ -8,7 +8,7 @@ const fixSizes = ['extra-small', 'small', 'midium', 'large', 'extra-large'];
 
 // console.log(fixItems.length, fixColors.length)
 function getImageArray(fixColors, fixItems) {
-  let arrayImageNames = [];
+  const arrayImageNames = new Array();
   for (let i=0; i < fixColors.length; i++) {
     for (let j=0; j < fixItems.length; j++) {
       let nameImage = fixColors[i] + '_' + fixItems[j] + '.png';
@@ -21,8 +21,8 @@ function getImageArray(fixColors, fixItems) {
 let arrayImageNames = getImageArray(fixColors, fixItems);
 
 // FOR TEST!
-console.log(arrayImageNames.length);
-for (i=0; i<arrayImageNames.length; i++) {
+console.log('Number of Images =', arrayImageNames.length);
+for (let i=0; i<arrayImageNames.length; i++) {
   console.log(arrayImageNames[i]);
 }
 
@@ -32,8 +32,8 @@ window.onload = function() {
   let htmlMiniMall = "";
   let location = "../../src/img/mini-mall/";
 
-  for (i=0; i<arrayImageNames.length; i++) {
-    htmlMiniMall += "<img width='45' src='" + location + arrayImageNames[i] + "' /><br />";
+  for (let i=0; i<arrayImageNames.length; i++) {
+    htmlMiniMall += `<img width='45' src='${location}${arrayImageNames[i]}' /><br />`;
   }
 
   document.getElementById("MALL-TABLE").innerHTML = htmlMiniMall;

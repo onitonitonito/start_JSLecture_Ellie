@@ -203,7 +203,6 @@ function ex05_8() {
     })();
 }
 
-
 // 9. Fun quiz time❤️
 const calculate = (commend, a, b) => {
   // function calculate(command, a, b)
