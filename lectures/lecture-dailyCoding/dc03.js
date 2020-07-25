@@ -15,7 +15,6 @@ function getDay() {
   document.querySelector('body').style.color = 'black';
 }
 
-// _____________________________________________________
 
 const talkArray = [
   "Hello! I am an alert box!!",
