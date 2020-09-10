@@ -197,7 +197,7 @@ function ex05_8() {
   console.log(add(1,2));
   console.log(simpleMultiply(3,4));
 
-  // IIFE = Tmediately Invoked Function expression
+  // IIFE = Tmediately Invoked Function Expression
   (function hello() {
       console.log('IIFE!');
     })();
